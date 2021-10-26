@@ -4,43 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Salaryofemp
+namespace Pancard
 {
-    class Program
-    {
-        static void Main(string[] args)
+    class Program {
+		public static void getDetails()
+		{
+			Console.WriteLine("How many PAN Number do you want to Enter?:");
+			int n = Convert.ToInt32(Console.ReadLine());
+			for (int i = 0; i < n; i++)
+			{
+				int[,] arr;
+				Console.WriteLine("Please Enter the employee" + "name");
+				string name = Console.ReadLine();
+				Console.WriteLine("Enter how many accounts do you have:");
+				int accno = Convert.ToInt32(Console.ReadLine());
+				int accbal = accno;
+				arr = new int[accno, accbal];
+				Console.WriteLine("Enter your accountNo and Account Balance");
+				for (int j = 0; j < accno; j++)
+				{
+					for (int k = 0; k < accbal; k++)
+					{
+
+						arr[j, k] = Convert.ToInt32(Console.ReadLine());
+					}
+				}
+
+				Console.WriteLine("Your AccountNo and Available Account balance:");
+				for (int j = 0; j < accno; j++)
+				{
+					for (int k = 0; k < accbal; k++)
+					{
+						Console.Write(arr[j, k] + " ");
+					}
+					Console.WriteLine();
+				}
+
+			}
+			Console.Read();
+		}
+
+
+		static void Main(string[] args)
         {
-            Console.WriteLine("Enter the size of the Array");
-            int n =Convert.ToInt32( Console.ReadLine());
-            Console.WriteLine("enter the employees salary");
-            int[] sal = new int[n];
 
-            for( int i=0;i<sal.Length;i++)
-            {
-                sal[i] = int.Parse(Console.ReadLine());
-
-            }
-            double avg = sal.Sum() / sal.Length;
-            Console.WriteLine("the average salary: ");
-            Console.WriteLine(avg);
-
-
-
-            int low = sal[0];
-            for(int i = 0; i < n; i++)
-            {
-                if (sal[i] < low)
-                {
-                    low = sal[i];
-                }
-                
-            }
-            Console.WriteLine("the lowest salary :");
-            Console.WriteLine(low);
-            Array.Sort(sal);
-            Console.WriteLine("highest salary of employee: ");
-            Console.WriteLine(sal[sal.Length - 1]);
-
+			getDetails();
             
         }
     }
